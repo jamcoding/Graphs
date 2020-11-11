@@ -2,6 +2,7 @@
 Simple graph implementation
 """
 from util import Stack, Queue  # These may come in handy
+from collections import deque
 
 class Graph:
 
@@ -36,7 +37,16 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        visited = set()
+        Queue = deque()
+        Queue.append(starting_vertex)
+        while len(Queue) > 0:
+            currNode = Queue.popleft()
+            if currNode not in visited:
+                visited.add(currNode)
+                print(currNode)
+                for neighbor in self.vertices[currNode]:
+                    Queue.append(neighbor)
 
     def dft(self, starting_vertex):
         """
