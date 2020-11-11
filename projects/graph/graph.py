@@ -44,7 +44,7 @@ class Graph:
             currNode = Queue.popleft()
             if currNode not in visited:
                 visited.add(currNode)
-                print(currNode)
+                print(f'BFT --> {currNode}')
                 for neighbor in self.vertices[currNode]:
                     Queue.append(neighbor)
 
@@ -53,7 +53,16 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        visited = set()
+        Stack = deque()
+        Stack.append(starting_vertex)
+        while len(Stack) > 0:
+            currNode = Stack.pop()
+            if currNode not in visited:
+                visited.add(currNode)
+                print(f'DFT --> {currNode}')
+                for neighbor in self.vertices[currNode]:
+                    Stack.append(neighbor)
 
     def dft_recursive(self, starting_vertex):
         """
