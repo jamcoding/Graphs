@@ -20,7 +20,10 @@ class Graph:
         """
         Add a directed edge to the graph.
         """
-        pass # TODO
+        if v1 not in self.vertices or v2 not in self.vertices:
+            print("Attempting to add an edge to a non-existing node(s)")
+            return
+        self.vertices[v1].add(v2)
 
     def get_neighbors(self, vertex_id):
         """
